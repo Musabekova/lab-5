@@ -9,13 +9,24 @@ import java.io.PrintWriter;
 public class ParameterTest1Servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html");
 
-    }
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException { response.setContentType("text/html");
-            PrintWriter out = response.getWriter();
+        PrintWriter out = response.getWriter();
             String title = "Using GET Method to Read Form Data";
-            String docType = "<!doctype html>\n"; out.println(docType +
-                "<html>\n"+ "<head><title>"  + title +"</title><head>\n"
-                + "<body bgcolor = \"#f0f0f0\">\n" + "<h1 align = \"center\">" + title + "</h1\n>" + "<ul>\n" + "<li><b>First Name</b>:" +request.getParameter("first_name")+"\n"+ "<li><b>Last Name</b>:" +request.getParameter("last_name")+"\n"+ "</ul>\n"+ "</body>\n"+ "</html>" );
+            String docType =
+                    "<!doctype html>\n";
+            out.println(docType +
+                "<html>\n"+
+                    "<head><title>"  + title +"</title><head>\n"
+                + "<body bgcolor = \"#f0f0f0\">\n" +
+                    "<h1 align = \"center\">" + title + "</h1\n>" +
+                    "<ul>\n" +
+                    "   <li><b>First Name</b>:"
+                    +request.getParameter("first_name")+"\n"+
+                    "<li><b>Last Name</b>:"
+                    +request.getParameter("last_name")+"\n"+
+                    "</ul>\n"+
+                    "</body>\n"+
+                    "</html>"
+            );
     } }
